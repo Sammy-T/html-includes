@@ -11,13 +11,17 @@ function includeHTML() {
     async function insertContent(includeEl) {
         const includeFile = includeEl.getAttribute('data-include-html');
 
-        const response = await fetch(includeFile);
-        if(!response.ok) return;
+        try {
+            const response = await fetch(includeFile);
+            if(!response.ok) return;
 
-        const responseText = await response.text();
-        console.log(responseText);
-        
-        includeEl.innerHTML = responseText;
+            const responseText = await response.text();
+            console.log(responseText);
+            
+            includeEl.innerHTML = responseText;
+        }catch(err) {
+            console.error(`Error inserting content from '${includeFile}'.`, err);
+        }
     }
 
     // Find the includes and insert their content
