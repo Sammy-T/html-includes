@@ -13,14 +13,18 @@
 
     <body>
         <div class="container">
-            <header data-include-html="header.html"></header>
+            <header data-inject-html="header.html"></header>
             <main>
                 <h1>This is an HTML include example</h1>
-                <p>It demonstrates how to include html from external files using js.</p>
+                <p>It demonstrates how to inject/include html from external files using js.</p>
 
-                <div data-include-html="sub-folder/sub-include.html"></div>
+                <div data-include-html="include.html"></div>
+
+                <div data-include-html="sub-folder/sub-include.html">
+                    <p>This should be replaced.</p>
+                </div>
             </main>
-            <footer data-include-html="footer.html"></footer>
+            <footer data-inject-html="footer.html"></footer>
         </div>
     </body>
 </html>
